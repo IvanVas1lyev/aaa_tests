@@ -1,0 +1,71 @@
+RUN WITHOUT FLAGS:
+
+(venv) (base) MacBook-Pro-admin-2:aaa_tests admin$ python -m doctest -v issue_01.py
+Trying:
+    encode('SOS')
+Expecting:
+    '... --- ...'
+ok
+Trying:
+    encode('SOS')
+Expecting:
+    '... ---
+    ...'
+**********************************************************************
+File "/Users/admin/PycharmProjects/aaa_tests/issue_01.py", line 35, in issue_01.encode
+Failed example:
+    encode('SOS')
+Expected:
+    '... ---
+    ...'
+Got:
+    '... --- ...'
+Trying:
+    encode('SOS') # doctest: +NORMALIZE_WHITESPACE
+Expecting:
+    '... ---
+    ...'
+ok
+Trying:
+    encode('Ъ')
+Expecting:
+    Traceback (most recent call last):
+    KeyError: 'Ъ'
+ok
+1 items had no tests:
+    issue_01
+**********************************************************************
+
+RUN WITH FLAGS:
+
+(venv) (base) MacBook-Pro-admin-2:aaa_tests admin$ python -m doctest -o NORMALIZE_WHITESPACE -v issue_01.py
+Trying:
+    encode('SOS')
+Expecting:
+    '... --- ...'
+ok
+Trying:
+    encode('SOS')
+Expecting:
+    '... ---
+    ...'
+ok
+Trying:
+    encode('SOS') # doctest: +NORMALIZE_WHITESPACE
+Expecting:
+    '... ---
+    ...'
+ok
+Trying:
+    encode('Ъ')
+Expecting:
+    Traceback (most recent call last):
+    KeyError: 'Ъ'
+ok
+1 items had no tests:
+    issue_01
+1 items passed all tests:
+   4 tests in issue_01.encode
+4 tests in 2 items.
+4 passed and 0 failed.
+Test passed.

@@ -1,0 +1,6 @@
+(venv) (base) MacBook-Pro-admin-2:aaa_tests admin$ python -m unittest issue_03.py
+....
+----------------------------------------------------------------------
+Ran 4 tests in 0.000s
+
+OK
